@@ -3,25 +3,25 @@ import { useState } from "react";
 
 function App() {
   const [text, setText] = useState("");
-  const pingServer = async () => {
-    // const url = "https://vercel-fastapi-react.vercel.app/";
-const url = "/api/hello";
-    try {
-      options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const response = await fetch(url, options);
-      console.log(response);
-      const { name } = await response.json();
-      setText(name);
-      console.log(name);
-    } catch (error) {
-      console.error(error);
-    }
+const pingServer = async () => {
+  const url = "/api/hello"; // Ensure this matches your FastAPI endpoint
+  const options = { // Define the options object
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
   };
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const { name } = await response.json();
+    setText(name);
+  } catch (error) {
+    console.error('Fetch error:', error);
+  }
+};
 
   return (
     <div className="App">
