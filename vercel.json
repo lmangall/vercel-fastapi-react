@@ -1,4 +1,18 @@
 {
   "devCommand": "bash ./run.sh",
-  "rewrites": [{ "source": "/(.*)", "destination": "/api/server" }]
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/server/$1"
+    }
+  ],
+  "builds": [
+    { "src": "ui/package.json", "use": "@vercel/static-build" }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/ui/$1"
+    }
+  ]
 }
