@@ -20,7 +20,7 @@ app.add_middleware(
 
 @app.get("/hello")
 def read_root():
-    return {"name": "nabs"}
+    return {"name": "test"}
 
 
 if __name__ == "__main__":
