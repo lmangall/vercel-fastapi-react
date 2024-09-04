@@ -9,11 +9,6 @@
   "builds": [
     { "src": "ui/package.json", "use": "@vercel/static-build" }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/ui/$1"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
-
