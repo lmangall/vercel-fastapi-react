@@ -5,7 +5,7 @@ function App() {
   const [text, setText] = useState("");
   const pingServer = async () => {
     // const url = "https://vercel-fastapi-react.vercel.app/";
-    const url = "api/";
+const url = "/hello";
     try {
       options = {
         method: "GET",
